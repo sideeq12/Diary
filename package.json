@@ -1,0 +1,19 @@
+{
+  "name": "diary",
+  "version": "1.0.0",
+  "description": "Daily diary",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sideeq12/Diary.git"
+  },
+  "author": "Sideeq Abdwaheed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sideeq12/Diary/issues"
+  },
+  "homepage": "https://github.com/sideeq12/Diary#readme"
+}
