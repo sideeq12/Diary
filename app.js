@@ -8,3 +8,9 @@ const dotenv = require("dotenv");
 dotenv.config({path : "./config/config.env"})
 
 const app = express();
+
+
+PORT = process.env.PORT || 300
+app.listen(PORT, ()=>{
+    console.log(`Server running on Port ${PORT}`)
+})
