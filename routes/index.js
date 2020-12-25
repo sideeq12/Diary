@@ -5,13 +5,13 @@ const router = express.Router()
 // Login to landing Page route
 // GET /
 router.get("/", (req, res)=>{
-    res.send("Login")
+    res.render("Login")
 })
 
 // Dashboard route
 // GET /
 router.get("/dashboard", (req, res)=>{
-    res.send("Dasboard")
+    res.rende("Dasboard")
 })
 
 module.exports = router;
