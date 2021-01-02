@@ -1,10 +1,12 @@
 const express = require("express");
 const router = express.Router()
+const { ensureAuth, ensureGuest } = require("../middleware/auth")
 
-
+// our stories
+const stories = require("../models/stories")
 // Login to landing Page route
 // GET /
-router.get("/", (req, res)=>{
+router.get("/", ensureGuest ,(req, res)=>{
     res.render("login", {
         layout : "login"
     })
@@ -12,8 +14,17 @@ router.get("/", (req, res)=>{
 
 // Dashboard route
 // GET /
-router.get("/dashboard", (req, res)=>{
-    res.render("dashboard")
+router.get("/dashboard", ensureAuth , async (req, res)=>{
+    try{
+            const story = await stories.find({user : req.user.id}).lean()
+            res.render("dashboard",{
+                name : req.user.firstName,
+                story
+            })
+    }catch(err){
+        console.log(err)
+    }
+    
 })
 
 module.exports = router;

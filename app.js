@@ -4,11 +4,17 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/db")
 const morgan = require("morgan")
 const exphbs = require("express-handlebars")
-
+const passport = require("passport")
+const mongoose = require("mongoose")
+const session = require("express-session");
+const  MongoStore  = require("connect-mongo")(session);
 
 // loading config file
 
-dotenv.config({path : "./config/config.env"})
+dotenv.config({path : "./config/.env"})
+
+// passport invoke
+require("./config/passport")(passport)
 
 connectDB()
 
@@ -20,8 +26,19 @@ app.use(express.static("public"))
 app.engine('.hbs', exphbs({ defaultLayout : 'main', extname: '.hbs'}))
 app.set('view engine', '.hbs');
 
+// declaring session
+app.use(session({
+    secret : 'keyboard cat',
+    resave : false,
+    saveUninitialized : false,
+    store : new MongoStore({ mongooseConnection : mongoose.connection})
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
 // Routes
 app.use("/", require("./routes/index"))
+app.use("/auth", require("./routes/auth"))
 
 
 
