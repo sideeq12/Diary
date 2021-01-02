@@ -14,8 +14,10 @@ connectDB()
 
 const app = express();
 
+// static folder
+app.use(express.static("public"))
 // declaring handlebars middleware
-app.engine('.hbs', exphbs({defaultLayout : "main", extname: '.hbs'}));
+app.engine('.hbs', exphbs({ defaultLayout : 'main', extname: '.hbs'}))
 app.set('view engine', '.hbs');
 
 // Routes
