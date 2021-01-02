@@ -1,0 +1,9 @@
+.login-container{
+    padding: 30px;
+    margin-top: 50px;
+    width: 500px;
+    text-align: center;
+}
+p{
+    margin: 10px 0 !important;
+}
