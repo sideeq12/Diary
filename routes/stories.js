@@ -16,6 +16,18 @@ router.post("/", ensureAuth, async (req, res)=>{
         console.log(err)
         res.render("error/500")
     }
-
+})
+router.get("/", ensureAuth, async (req, res)=>{
+    try{
+        const Stories = await stories.find({status : "Public"})
+        .populate("user")
+        .lean()
+        res.render("stories/index", {
+            Stories
+        })
+    }catch(err){
+        console.log(err)
+        res.render("error/500")
+    }
 })
 module.exports = router;

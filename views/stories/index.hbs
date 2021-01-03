@@ -1,0 +1,24 @@
+<h3>Stories</h3>
+ <div class="row">
+     {{#each Stories}}
+     <div class="col s12 m4">
+         <div class="card">
+             <div class="card-image">
+                 {{!-- edit icon --}}
+             </div>
+             <div class="card-content center-align">
+                 <h4>{{title}}</h4>
+                 <p>{{body}}</p>
+                 <br/>
+                <div class="chip">
+                    <img src="{{user.image}}" alt="">
+                    <a href="/stories/user/{{user._id}}">{{user.displayName}} </a>
+                </div>
+             </div>
+             <div class="card-action center-align">
+                 <a href="/stories/{{_id}}" class="btn grey"></a>
+             </div>
+         </div>
+         
+     </div>
+ </div>
