@@ -11,7 +11,7 @@ const  MongoStore  = require("connect-mongo")(session);
 
 // loading config file
 
-dotenv.config({path : "./config/.env"})
+dotenv.config({path : "./config/ .env"})
 
 // passport invoke
 require("./config/passport")(passport)

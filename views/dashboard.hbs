@@ -3,6 +3,17 @@
 <p>Here are your Daily Diaries</p>
 {{#if stories}}
 
+{{#each stories}}
+<div class="story">
+    <div class="Top">
+<span>Title : {{title}}</span>    <label>{{status}}</label>
+    </div>
+  <p>{{body}}</p>  
+  <div class="bottom">
+      {{createdAt}} <div class="btn btn-red"></div>
+  </div>
+</div>
+{{/each}}
 {{else}}
 <p>You have not created any story</p>
 
