@@ -1,4 +1,6 @@
 "use-strict"
+
+const bodyParser = require("body-parser")
 const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db")
@@ -11,7 +13,7 @@ const  MongoStore  = require("connect-mongo")(session);
 
 // loading config file
 
-dotenv.config({path : "./config/ .env"})
+dotenv.config({path : "./config/.env"})
 
 // passport invoke
 require("./config/passport")(passport)
@@ -22,6 +24,10 @@ const app = express();
 
 // static folder
 app.use(express.static("public"))
+// using Body parser to pass the post request content
+app.use(express.urlencoded({extended: true}))
+app.use(express.json())
+
 // declaring handlebars middleware
 app.engine('.hbs', exphbs({ defaultLayout : 'main', extname: '.hbs'}))
 app.set('view engine', '.hbs');
@@ -39,6 +45,7 @@ app.use(passport.session())
 // Routes
 app.use("/", require("./routes/index"))
 app.use("/auth", require("./routes/auth"))
+app.use("/stories", require("./routes/stories"))
 
 
 
