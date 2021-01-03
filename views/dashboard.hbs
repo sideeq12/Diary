@@ -1,16 +1,16 @@
 <h6>Dashboard</h6>
 <h4>Welcome back {{name}}</h4>
 <p>Here are your Daily Diaries</p>
-{{#if stories}}
+{{#if story}}
 
-{{#each stories}}
+{{#each story}}
 <div class="story">
     <div class="Top">
-<span>Title : {{title}}</span>    <label>{{status}}</label>
+<span>Title : {{title}}</span>   
+    <span>Status : {{status}}</span>
     </div>
   <p>{{body}}</p>  
-  <div class="bottom">
-      {{createdAt}} <div class="btn btn-red"></div>
+  <div class="bottom"><div class="btn red">Delete</div><a href="" class="btn">Edit</a>
   </div>
 </div>
 {{/each}}

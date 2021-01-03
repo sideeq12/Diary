@@ -7,3 +7,26 @@
 p{
     margin: 10px 0 !important;
 }
+.story{
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    background-color: #cfdac8;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.Top{
+    display: flex;
+    flex-direction: row;
+}
+span{
+    padding: 10px;
+}
+.btn{
+    margin: 10px;
+}
