@@ -27,7 +27,22 @@ router.get("/", ensureAuth, async (req, res)=>{
         })
     }catch(err){
         console.log(err)
-        res.render("error/500")
+        res.render("/error/500")
     }
+})
+//  edit stories route
+router.get("/edit/:id", ensureAuth , async (req, res)=>{
+   const story = await stories.findOne({_id : req.params.id}).lean()
+
+   if(!story){
+    res.render("error/404")
+   }
+   if(story.user != req.user.id){
+       res.render('/stories')
+   }else{
+       res.render("stories/edit", {
+           story
+       })
+   }
 })
 module.exports = router;
