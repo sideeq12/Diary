@@ -28,8 +28,14 @@ app.use(express.static("public"))
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
+// script tag
+const {truncate, stripTags } = require("./helpers/hbs")
+
 // declaring handlebars middleware
-app.engine('.hbs', exphbs({ 
+app.engine('.hbs', exphbs({  helpers : {
+    truncate,
+    stripTags
+},
 defaultLayout : 'main', extname: '.hbs'}))
 app.set('view engine', '.hbs');
 
