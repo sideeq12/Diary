@@ -2,18 +2,19 @@
 <h4>Welcome back {{name}}</h4>
 <p>Here are your Daily Diaries</p>
 {{#if story}}
-
+<div class="cover">
 {{#each story}}
 <div class="story">
     <div class="Top">
 <span>Title : {{title}}</span>   
     <span>Status : {{status}}</span>
     </div>
-  <p>{{body}}</p>  
+  <p>{{stripTags (truncate body 150)}}</p>  
   <div class="bottom"><div class="btn red">Delete</div><a href="" class="btn">Edit</a>
   </div>
 </div>
 {{/each}}
+</div>
 {{else}}
 <p>You have not created any story</p>
 

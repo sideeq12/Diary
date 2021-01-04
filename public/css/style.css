@@ -19,6 +19,13 @@ p{
     justify-content: center;
     align-items: center;
     padding: 10px;
+    margin: 10px;
+}
+.cover{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
 }
 .Top{
     display: flex;

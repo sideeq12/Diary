@@ -1,15 +1,15 @@
 module.exports = {
     truncate : function(str, len){
-        if(str.length > 0 && str > len){
+        if(str.length > len && str > 0){
             let new_str = str + " "
             new_str = str.substr(0, len)
-            new_str = str.substr(0, new_str.lastIndexOf(" "))
+            new_str = str.substr(0, new_str.lastIndexOf(""))
             new_str = new_str > 0 ? new_str : str.substr(0, len)
             return new_str + "..."
         }
-        return str;
+    return str;
     },
     stripTags : function(input){
-        return input.replace(/<(?:|\n)*?>/gm, " ")
+        return input.replace(/(<([^>]+)>)/gi, " ")
     }
 }
