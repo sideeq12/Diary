@@ -45,4 +45,49 @@ router.get("/edit/:id", ensureAuth , async (req, res)=>{
        })
    }
 })
+
+// Update Stories
+// PUT /stories/id
+
+router.put("/:id", ensureAuth, async (req, res)=>{
+    let story = await stories.findById(req.params.id).lean();
+    if(!story){
+        res.render("error/404")
+    }
+    if(story.user != req.user.id){
+        res.render('error/500')
+    }else{
+        story = await stories.findOneAndUpdate({_id : req.params.id } ,req.body, {
+            new : true,
+            runValidators : true
+        })
+        res.redirect("/dashboard")
+    }
+})
+
+router.get("/delete/:id", ensureAuth, async (req, res)=>{
+    try{
+            await stories.remove({_id :req.params.id}).lean()
+            res.redirect("/dashboard")
+    }catch(err){
+        console.log(err)
+        res.render("error/500")
+    }
+})
+router.get("/:id", ensureAuth, async (req, res)=>{
+        try{
+            let story = await stories.findById(req.params.id)
+            .populate("user")
+            .lean()
+            if(!story){
+                res.render("error/404")
+            }
+            res.render("stories/diary", {
+                story
+            })
+        }catch(err){
+            console.log(err)
+            res.render("error/500")
+        }
+})
 module.exports = router;

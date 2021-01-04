@@ -10,7 +10,7 @@
  <h5>{{status}}</h5>  
     </div>
   <p>{{truncate (stripTags body) 150}}</p>  
-  <div class="bottom"><div class="btn red">Delete</div><a href="" class="btn">Edit</a>
+  <div class="bottom"><a href="/stories/delete/{{_id}}" class="btn red">Delete</a><a href="/stories/edit/{{_id}}" class="btn">Edit</a>
   </div>
 </div>
 {{/each}}
