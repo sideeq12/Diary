@@ -10,7 +10,7 @@ p{
 .story{
     width: 300px;
     height: 300px;
-    border: 1px solid black;
+    border: outset;
     background-color: #cfdac8;
     border-radius: 5px;
     box-shadow: 5px 5px 5px black;
