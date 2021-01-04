@@ -6,8 +6,8 @@
 {{#each story}}
 <div class="story">
     <div class="Top">
-<span>Title : {{title}}</span>   
-    <span>Status : {{status}}</span>
+<h5>{{title}}</h5>  
+ <h5>{{status}}</h5>  
     </div>
   <p>{{truncate (stripTags body) 150}}</p>  
   <div class="bottom"><div class="btn red">Delete</div><a href="" class="btn">Edit</a>
