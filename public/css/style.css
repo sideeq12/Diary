@@ -37,3 +37,6 @@ span{
 .btn{
     margin: 10px;
 }
+.fa-small{
+    font-size: 16px !important;
+}
