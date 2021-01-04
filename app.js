@@ -31,8 +31,9 @@ app.use(express.json())
 // script tag
 const {truncate, stripTags } = require("./helpers/hbs")
 
+
 // declaring handlebars middleware
-app.engine('.hbs', exphbs({  helpers : {
+app.engine('.hbs', exphbs({helpers : {
     truncate,
     stripTags
 },
