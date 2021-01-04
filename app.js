@@ -29,13 +29,14 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
 // script tag
-const {truncate, stripTags } = require("./helpers/hbs")
+const {truncate, stripTags, editIcon } = require("./helpers/hbs")
 
 
 // declaring handlebars middleware
 app.engine('.hbs', exphbs({helpers : {
     truncate,
-    stripTags
+    stripTags,
+    editIcon
 },
 defaultLayout : 'main', extname: '.hbs'}))
 app.set('view engine', '.hbs');
@@ -51,6 +52,14 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 // Routes
+
+//setting global variable
+app.use(function(req, res , next){
+    res.locals.user = req.user || null
+    next()
+}) 
+
+
 app.use("/", require("./routes/index"))
 app.use("/auth", require("./routes/auth"))
 app.use("/stories", require("./routes/stories"))
