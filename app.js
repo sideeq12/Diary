@@ -77,5 +77,5 @@ app.use("/stories", require("./routes/stories"))
 
 
 app.listen(process.env.PORT || 300, ()=>{
-    console.log(`Server running on Port ${PORT}`)
+    console.log("Server running on Port 3000")
 })
