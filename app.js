@@ -76,8 +76,6 @@ app.use("/auth", require("./routes/auth"))
 app.use("/stories", require("./routes/stories"))
 
 
-
-PORT = process.env.PORT || 300
-app.listen(PORT, ()=>{
+app.listen(process.env.PORT || 300, ()=>{
     console.log(`Server running on Port ${PORT}`)
 })
